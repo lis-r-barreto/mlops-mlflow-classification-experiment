@@ -50,9 +50,10 @@ jobs:
                 if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
           - name: Set up MLflow environment variables
-            env:
-              MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
-              MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+            run: |
+              echo "Setting up MLflow environment variables"
+              export MLFLOW_TRACKING_USERNAME=${{ secrets.MLFLOW_TRACKING_USERNAME }}
+              export MLFLOW_TRACKING_PASSWORD=${{ secrets.MLFLOW_TRACKING_PASSWORD }}
 
           - name: Train Model
             run: |
