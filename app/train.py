@@ -123,10 +123,8 @@ def config_mlflow():
     Returns:
         None
     """
-    # mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
-    mlflow_username = "lis-r-barreto"
-    # mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
-    mlflow_password = "4e756087b8703385f28b2787fca9832416cc0c83"
+    mlflow_username = os.getenv("MLFLOW_TRACKING_USERNAME")
+    mlflow_password = os.getenv("MLFLOW_TRACKING_PASSWORD")
     if not mlflow_username or not mlflow_password:
         raise ValueError(
             "MLFLOW_TRACKING_USERNAME and MLFLOW_TRACKING_PASSWORD environment variables must be set"
