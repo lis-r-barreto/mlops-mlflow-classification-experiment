@@ -15,7 +15,8 @@ def reset_seeds():
     """
     Reset the seeds for random number generators.
 
-    This function sets the seeds for the `os`, `tf.random`, `np.random`, and `random`
+    This function sets the seeds for the `os`, `tf.random`,
+    `np.random`, and `random`
     modules to ensure reproducibility in random number generations.
 
     Parameters:
@@ -32,7 +33,8 @@ def reset_seeds():
 
 def read_data():
     """
-    Reads the data from a CSV file and returns the feature matrix X and target vector y.
+    Reads the data from a CSV file and returns
+    the feature matrix X and target vector y.
 
     Returns:
         X (pandas.DataFrame): The feature matrix of shape (n_samples, n_features).
