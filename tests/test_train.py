@@ -2,9 +2,7 @@ import pandas as pd
 import pytest
 from tensorflow.keras.models import Sequential
 
-from app.train import (read_data,
-                   create_model,
-                   train_model)
+from app.train import read_data, create_model, train_model
 
 
 @pytest.fixture
@@ -16,11 +14,13 @@ def sample_data():
         pandas.DataFrame: A DataFrame containing sample data with three columns: 'feature1',
          'feature2', and 'fetal_health'.
     """
-    data = pd.DataFrame({
-        'feature1': [1, 2, 3, 4, 5],
-        'feature2': [6, 7, 8, 9, 10],
-        'fetal_health': [1, 1, 2, 3, 2]
-    })
+    data = pd.DataFrame(
+        {
+            "feature1": [1, 2, 3, 4, 5],
+            "feature2": [6, 7, 8, 9, 10],
+            "fetal_health": [1, 1, 2, 3, 2],
+        }
+    )
     return data
 
 
@@ -66,9 +66,9 @@ def test_train_model(sample_data):
     Returns:
         None
     """
-    X = sample_data.drop(['fetal_health'], axis=1)
-    y = sample_data['fetal_health'] - 1
+    X = sample_data.drop(["fetal_health"], axis=1)
+    y = sample_data["fetal_health"] - 1
     model = create_model(X)
     train_model(model, X, y, is_train=False)
-    assert model.history.history['loss'][-1] > 0
-    assert model.history.history['val_loss'][-1] > 0
+    assert model.history.history["loss"][-1] > 0
+    assert model.history.history["val_loss"][-1] > 0
